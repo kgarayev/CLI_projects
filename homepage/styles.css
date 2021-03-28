@@ -1,0 +1,68 @@
+html, body {
+    height: 100%;
+    background: #212529;
+    font-family: "Monaco", monospace;
+    color: white;
+
+}
+
+main {
+    text-align: center;
+    position: absolute;
+    top: 30%;
+}
+
+.container-fluid {
+    height: 200px;
+}
+
+.heading {
+    font-size: 4rem;
+    font-weight: 900;
+}
+
+.typing {
+    font-size: x-large;
+    font-weight: 100;
+}
+
+.row {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: white;
+
+}
+
+.col-sm-2 {
+    text-align: center;
+}
+
+.logo {
+    border: 1px solid white;
+    padding-bottom: 1px;
+    padding-left: 0px;
+    display:inline;
+}
+
+.topnav {
+    text-align: center;
+    overflow: hidden;
+}
+
+.topnav a {
+    color: white;
+    text-decoration: none;
+}
+
+.topnav a:hover {
+  color: #bbb;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: grey;
+    text-align: center;
+    font-size: 12pt;
+}

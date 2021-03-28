@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+        <script>
+
+            function multiple(event)
+            {
+                var answer = event.srcElement.innerHTML;
+
+                if (answer == "Baku")
+                {
+                    document.getElementById("Baku").style.backgroundColor = "#43d321";
+                    document.getElementById("verdict1").innerHTML = "Correct!";
+                    document.getElementById("verdict1").style.display = "";
+                }
+                else
+                {
+                    document.getElementById(answer).style.backgroundColor = "red";
+                    document.getElementById("verdict1").innerHTML = "Incorrect...";
+                    document.getElementById("verdict1").style.display = "";
+                }
+
+            }
+
+            function open()
+            {
+                let answer = document.querySelector("#open_answer").value;
+
+                if (answer == "Trump")
+                {
+                    document.getElementById("open_answer").style.backgroundColor = "#43d321";
+                    document.getElementById("verdict2").innerHTML = "Correct!";
+                    document.getElementById("verdict2").style.display = "";
+                }
+                else
+                {
+                    document.getElementById("open_answer").style.backgroundColor = "red";
+                    document.getElementById("verdict2").innerHTML = "Incorrect...";
+                    document.getElementById("verdict2").style.display = "";
+                }
+
+
+            }
+
+            function listen ()
+            {
+                document.querySelector('form').addEventListener('submit', open);
+            }
+
+            document.addEventListener('DOMContentLoaded', listen);
+
+        </script>
+
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                    <h3>What is the capital of Azerbaijan?</h3>
+
+                    <h4 id = "verdict1" style = "display:none"></h4>
+
+                    <div class="answers" style = ":target">
+                        <button type="button" id = "Yerevan" onclick="multiple(event);">Yerevan</button>
+                        <button type="button" id = "Tbilisi" onclick="multiple(event);">Tbilisi</button>
+                        <button type="button" id = "Baku" onclick="multiple(event);">Baku</button>
+                        <button type="button" id = "Ankara" onclick="multiple(event);">Ankara</button>
+                        <button type="button" id = "Tabriz" onclick="multiple(event);">Tabriz</button>
+                    </div>
+
+
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+
+                    <h3>Who is the President of USA?</h3>
+
+                    <h4 id = "verdict2" style = "display:none"></h4>
+
+                <form onsubmit = "return false;">
+                    <input type="text" id="open_answer">
+                    <input type="submit" value="Check Answer">
+                </form>
+
+            </div>
+
+        </div>
+    </body>
+</html>

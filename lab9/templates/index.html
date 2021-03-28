@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+        <script>
+
+            function check(event)
+            {
+                var name = document.forms["myForm"]["name"].value;
+                var month = document.forms["myForm"]["month"].value;
+                var day = document.forms["myForm"]["day"].value;
+
+                if (name == "" || day == "" || month == "" )
+                {
+                    alert("Insufficient Data! Fill all the boxes.");
+                    return false;
+                }
+
+                if (!Number.isInteger(day) || !Number.isInteger(month))
+                {
+                    alert("Invalid Data!");
+                    return false;
+                }
+
+                if (day > 31 || month > 12)
+                {
+                    alert("Invalid Data!");
+                    return false;
+                }
+
+            }
+
+        </script>
+
+        <div class="container">
+            <div class="section">
+
+                <h2>Add a Birthday</h2>
+                <!-- TODO: Create a form for users to submit a name, a month, and a day -->
+                <form name="myForm" action="/" method="post">
+                    <input id="one" name="name" autocomplete="off" autofocus placeholder="Name" type="text">
+                    <input id="two" name="month" autocomplete="off" autofocus placeholder="Month" type="number" min="1" max="12">
+                    <input id="three" name="day" autocomplete="off" autofocus placeholder="Day" type="number" min="1" max = "31">
+                    <input type="submit" value="Add Birthday" onclick="check(event);">
+                </form>
+
+            </div>
+
+            <div class="section">
+
+                <h2>All Birthdays</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Birthday</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- TODO: Loop through the database entries to display them in this table -->
+                        {% for item in birthdays %}
+                            <tr>
+                                <td>{{item.name}}</td>
+                                <td>{{item.day}}/{{item.month}}</td>
+                                <td>
+                                    <form action="/" method="get">
+                                        <input name="edit" type="hidden" value="{{item.id}}">
+                                        <input type="submit" value="edit">
+                                        <input name="delete" type="hidden" value="{{item.id}}">
+                                        <input type="submit" value="delete">
+                                    </form>
+                                </td>
+
+                            </tr>
+
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+{% endblock %}
