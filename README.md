@@ -1,4 +1,4 @@
-# cs50-projects
+# Command Line Interface Projects
 Problem sets, mini-projects and labs completed as part of the Harvard's CS50 course.
 
 Programming languages include:
